@@ -1,0 +1,83 @@
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.search-icon-img {
+  width: 20px;
+  height: 20px;
+  padding: 10px 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-search-page-section {
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+  width: 50%;
+}
+
+.search-bar-section {
+  flex-direction: row;
+  border: 1px solid black;
+  width: 100%;
+  border-radius: 20px;
+  gap: 12px;
+  padding: 0 10px;
+  justify-content: center;
+}
+
+.search-bar-section input {
+  border: none;
+  width: 100%;
+  padding: 10px 0;
+  outline: none;
+  font-size: 16px;
+}
+
+.close-icon {
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+  padding: 10px 0;
+  margin-right: 5px;
+}
+
+.all-cards-section {
+  width: 100%;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.card-section {
+  gap: 5px;
+  border-bottom: 1px solid rgb(201, 195, 195);
+  padding: 15px 20px;
+}
+
+.card-section ul {
+  padding: 5px 8px;
+  border-top: 1px solid rgb(201, 195, 195);
+  border-bottom: 1px solid rgb(201, 195, 195);
+}
+
+.card-section ul li {
+  margin-left: 10px;
+}
+
+.user-card:hover {
+  background-color: #fcf2e5;
+}
+
+.user-card.active {
+  background-color: #fcf2e5;
+}
