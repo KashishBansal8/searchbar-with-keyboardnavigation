@@ -3,14 +3,18 @@ import SearchIcon from "../images/search-icon.png";
 import CloseIcon from "../images/close.png";
 import useMockSearchData from '../utils/useMockSearchData'
 import { useSearchPageContext } from '../context/SearchPageContext';
+import useDebounce from '../utils/useDebounce';
 
 const Searchbar = () => {
     const [searchValue, setSearchValue] = useState("");
     const mockData = useMockSearchData();
     const { searchedData, setSearchedData, selectedItem, setSelectedItem, setMatchedSearchVal } = useSearchPageContext();
 
+    const debouncedStr = useDebounce(searchValue);
+
     useEffect(() => {
-        const lowerCaseSearchValue = searchValue.toLowerCase();
+        // const lowerCaseSearchValue = searchValue.toLowerCase();
+        const lowerCaseSearchValue = debouncedStr.toLowerCase();
         const filteredData = mockData.filter((data) =>
             data.id.toLowerCase().includes(lowerCaseSearchValue) ||
             data.name.toLowerCase().includes(lowerCaseSearchValue) ||
@@ -44,8 +48,10 @@ const Searchbar = () => {
                 }
             })
         setSearchedData(filteredData);
-        setMatchedSearchVal(searchValue);
-    }, [searchValue]);
+        // setMatchedSearchVal(searchValue);
+        setMatchedSearchVal(debouncedStr);
+        // }, [searchValue]);
+    }, [debouncedStr]);
 
     const handleClose = () => {
         setSearchValue("");
